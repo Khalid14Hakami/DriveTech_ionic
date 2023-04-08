@@ -5,8 +5,11 @@
     </ion-button>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding h-100 w-100">
-  <div class="h-100">
+<ion-content
+  [ngClass]="{'scanner-active' : showScanner}"
+  class="ion-padding h-100 w-100"
+>
+  <div *ngIf="showData" class="h-100">
     <ion-card
       *ngFor="let detail of modaldetails"
       class="text-center py-3 m-0"
@@ -98,7 +101,7 @@
     </div>
   </div>
 </ion-content>
-<ion-footer>
+<ion-footer *ngIf="showData">
   <ion-toolbar>
     <div class="px-4 py-2">
       <ion-button expand="block"> Complete </ion-button>

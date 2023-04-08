@@ -38,3 +38,13 @@ ion-card {
   // background-color: white;
   background: rgba(255, 255, 255, 1);
 }
+
+body.scanner-active {
+  --background: transparent;
+  --ion-background-color: transparent;
+}
+
+.scanner-active {
+  --background: transparent;
+  --ion-background-color: transparent;
+}

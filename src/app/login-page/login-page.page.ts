@@ -1,23 +1,23 @@
-import { Component, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   FormControl,
   FormGroup,
   FormsModule,
   Validators,
-} from "@angular/forms";
-import { IonicModule, NavController } from "@ionic/angular";
-import { ReactiveFormsModule } from "@angular/forms";
-import { Router } from "@angular/router";
+} from '@angular/forms';
+import { IonicModule, NavController } from '@ionic/angular';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 // import { ApisService } from 'src/service/apis.service';
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 // import { get } from '@ionic-native/core/decorators/common';
-import { ApisService } from "src/service/apis.service";
+import { ApisService } from 'src/service/apis.service';
 
 @Component({
-  selector: "app-login-page",
-  templateUrl: "./login-page.page.html",
-  styleUrls: ["./login-page.page.scss"],
+  selector: 'app-login-page',
+  templateUrl: './login-page.page.html',
+  styleUrls: ['./login-page.page.scss'],
   standalone: true,
   imports: [
     IonicModule,
@@ -44,13 +44,13 @@ export class LoginPagePage implements OnInit {
   constructor(private navCtrl: NavController, private HttpClient: HttpClient) {}
 
   onforgotClick() {
-    this.navCtrl.navigateForward("forgot-password");
+    this.navCtrl.navigateForward('forgot-password');
   }
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
-      Email: new FormControl("", [Validators.required, Validators.email]),
-      password: new FormControl("", [
+      Email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(10),
@@ -59,18 +59,17 @@ export class LoginPagePage implements OnInit {
   }
 
   onSubmitClick() {
-    this.navCtrl.navigateForward("tabs");
     if (this.myForm.valid) {
-      // this.HttpClient.post(
-      //   `https://my-json-server.typicode.com/techsithgit/json-faker-directory/profiles/`,
-      //   { email: this.myForm.value.Email, password: this.myForm.value.password }
-      // ).subscribe((data: any[]) => {
-      //   console.log('data stored.');
-      // });
+      this.HttpClient.post(
+        `https://my-json-server.typicode.com/techsithgit/json-faker-directory/profiles/`,
+        { email: this.myForm.value.Email, password: this.myForm.value.password }
+      ).subscribe((data: any[]) => {
+        console.log('data stored.');
+      });
 
-      this.navCtrl.navigateForward("tabs");
+      this.navCtrl.navigateForward('tabs');
     } else {
-      console.error("form is invalid");
+      console.error('form is invalid');
     }
   }
 

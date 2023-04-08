@@ -31,7 +31,7 @@ export class ApisService {
     ]);
   }
 
-  getscaner() {
+  getJobDetails() {
     return of([
       {
         make: 'GMC YOKON 2023',
