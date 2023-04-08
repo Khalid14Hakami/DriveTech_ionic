@@ -1,17 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary" class="text-center">
+    <div class="h3 m-0 py-3">Jobs</div>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card
+    *ngFor="let job of jobs"
+    color="light"
+    mode="ios"
+    class="p-2 mx-0 my-3 text-dark"
+    (click)="onCardClick()"
+  >
+    <div class="text-center">
+      <div class="w-25 m-auto py-2">
+        <img
+          src="https://cdn.worldvectorlogo.com/logos/gmc-1.svg"
+          class="logo"
+        />
+      </div>
+      <div class="fw-bold m-0 h5">{{job.modle}}</div>
+    </div>
+    <div class="p-3 text-secondary cont fw-bold my-2">
+      <div>Battery</div>
+      <div>Tire Pressure</div>
+      <div>windshield Wipers</div>
+    </div>
+    <div class="row align-items-center p-3">
+      <div class="col-md-7 col-7 p-0 fw-bold h5 m-0">Tasks:</div>
+      <div class="col-md-5 col-5 text-end p-0">
+        Due :<span class="text-danger"> {{job.due}}</span>
+      </div>
+    </div>
+  </ion-card>
 </ion-content>

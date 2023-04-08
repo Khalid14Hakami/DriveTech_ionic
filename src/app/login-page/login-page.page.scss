@@ -1,0 +1,191 @@
+.login-btn {
+  height: 45px;
+  font-family: "Manrope", sans-serif;
+  font-style: normal;
+  font-weight: 600 !important;
+  font-size: 17px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.pdl30 {
+  padding-left: 30px;
+}
+
+.pdt30 {
+  padding-top: 30px;
+}
+
+.pdt100 {
+  padding-top: 100px;
+}
+
+.pdr25 {
+  padding-right: 25px;
+}
+
+.pdt15 {
+  padding-top: 15px;
+}
+
+.pdl5 {
+  padding-left: 5px;
+}
+
+.pdr5 {
+  padding-right: 5px;
+}
+
+.h100 {
+  height: 100% !important;
+}
+
+.welcome-txt {
+  // font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 34px;
+  color: #000000;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.helloAgain-txt {
+  // font-family: "Manrope";
+  font-style: normal;
+  // font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #999ea1;
+}
+
+.text-danger {
+  cursor: pointer;
+}
+
+.bg-clr {
+  background: #ffffff;
+  border: 1px solid #c6c6c6;
+  border-radius: 8px;
+}
+
+.name-box {
+  width: 372px;
+  height: 50px;
+  //   border-radius: 15px;
+  border: 1px solid #e5e4e3;
+  padding: 16px;
+}
+
+.email-txt {
+  // font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #00004d;
+}
+
+// .back-img {
+//   background-image: url(../../assets/BackgroundImage.png);
+//   background-size: 100%;
+// }
+
+.or-txt {
+  // font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  color: #242a31;
+}
+
+.hrTag {
+  width: 40%;
+  border: 1px solid #000000;
+  opacity: 0.75;
+  box-sizing: inherit;
+}
+
+.pdl40 {
+  padding-left: 40px;
+}
+
+.pdl20 {
+  padding-left: 20px;
+}
+
+.pdr20 {
+  padding-right: 20px;
+}
+
+.pdr10 {
+  padding-right: 10px;
+}
+
+.pdlp10 {
+  padding-left: 10px !important;
+}
+
+.git-txt {
+  // font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  color: #242a31;
+  border: 1px solid #cdd1e0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  --background: white;
+  height: 45px;
+}
+
+.pdl90 {
+  padding-left: 90px;
+}
+
+.account-txt {
+  // font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #999ea1;
+}
+
+.signup-txt {
+  // font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #160062;
+  text-decoration: none;
+}
+
+ion-icon {
+  color: gray;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+ion-button {
+  --background: #351a96;
+}
+
+ion-content {
+  --keyboard-offset: 0 !important;
+  --offset-top: 0 !important;
+  --offset-bottom: 0 !important;
+  --offset-top: 0px;
+  --offset-bottom: 0px;
+  --keyboard-offset: 0px;
+}

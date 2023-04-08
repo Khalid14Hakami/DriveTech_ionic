@@ -1,0 +1,36 @@
+.logo {
+  height: 20%;
+  width: 30%;
+  object-fit: cover;
+}
+// .scan-btn {
+//   position: fixed;
+//   bottom: 10px;
+//   background: lightgrey;
+//   height: 115px;
+//   border-radius: 94px;
+//   font-size: 12px;
+// }
+
+ion-checkbox {
+  --size: 17px;
+}
+
+ion-checkbox::part(container) {
+  border-radius: 5px;
+}
+ion-input.custom {
+  --background: #f0f4f3;
+  --color: black;
+  //   border: 1px solid gray;
+  border-radius: 5px;
+  --padding-bottom: 2px;
+  --padding-end: 4px;
+  --padding-start: 4px;
+  --padding-top: 2px;
+}
+.row {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px 0px;
+}

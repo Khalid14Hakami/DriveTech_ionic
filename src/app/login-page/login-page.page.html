@@ -1,0 +1,109 @@
+<ion-content [fullscreen]="true">
+  <div class="h100">
+    <div class="text-center pt-5 pb-5">
+      <img src="../../assets/icon/gm-lgo.jpg" alt="" style="width: 80px" />
+    </div>
+    <div class="pdl30 welcome-txt">Hi, Wecome Back! 👋</div>
+    <div class="pdl30 helloAgain-txt">Hello again, you’ve been missed!</div>
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="m-0 p-0">
+      <div class="email-box pdl30 pdr25">
+        <div>
+          <div class="email-txt pdt30">Email</div>
+          <ion-input
+            label-placement="floating"
+            formControlName="Email"
+            fill="outline"
+            [(ngModel)]="email"
+            type="email"
+            placeholder="sophat.leat@nintrea.live"
+            class="bg-clr pdlp10"
+          ></ion-input>
+        </div>
+
+        <!-- <div
+          *ngIf="form?.Email?.touched && form?.Email?.errors?.required"
+          class="text-danger validation pdr"
+        >
+          Email is required
+        </div>
+        <div
+          *ngIf="form?.Email?.touched && form?.Email?.errors?.email"
+          class="text-danger validation pdr"
+        >
+          Email is wrong
+        </div> -->
+      </div>
+
+      <div class="email-box pdl30 pdr25">
+        <div>
+          <div class="email-txt pdt30">Password</div>
+
+          <div class="bg-clr d-flex justify-content-end align-items-center">
+            <ion-input
+              label-placement="floating"
+              formControlName="password"
+              fill="outline"
+              [(ngModel)]="password"
+              [type]="passwordVisible ? 'text' : 'password'"
+              placeholder="Please Enter Your Password"
+              class="pdlp10"
+            >
+            </ion-input>
+            <ion-icon
+              class="pdr10 visibility"
+              name="{{ passwordVisible ? 'eye' : 'eye-off' }}"
+              (click)="passwordVisible = !passwordVisible"
+            ></ion-icon>
+          </div>
+        </div>
+
+        <!-- <div>
+          <div
+            *ngIf="form?.password?.touched && form?.password?.errors?.required"
+            class="validation text-danger d-flex align-items-center justify-content-between"
+            (click)="onforgotClick()"
+          >
+            Password is required
+          </div>
+          <div
+            *ngIf="form?.password?.touched  && form?.password?.errors?.minlength"
+          >
+            min 6 digit
+          </div>
+          <div
+            *ngIf="form?.password?.touched  && form?.password?.errors?.maxlength"
+          >
+            maximum 20 digit
+          </div>
+        </div> -->
+      </div>
+
+      <ion-row
+        class="align-items-center justify-content-between pdl30 pdt15 pdr25"
+      >
+        <ion-col size="6" class="d-flex align-items-center">
+          <ion-checkbox mode="md" checked></ion-checkbox>
+          <ion-label class="pdl5">Remember Me</ion-label>
+        </ion-col>
+        <ion-col
+          size="6"
+          class="text-danger d-flex justify-content-end"
+          (click)="onforgotClick()"
+        >
+          Forgot password
+        </ion-col>
+      </ion-row>
+
+      <div class="pdt100">
+        <ion-button
+          (click)="onSubmitClick()"
+          class="login-btn pdr25 pdl30 text-capitalize"
+          expand="full"
+        >
+          Login
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>
