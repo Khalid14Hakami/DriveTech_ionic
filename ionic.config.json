@@ -1,0 +1,7 @@
+{
+  "name": "driveTech-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
