@@ -56,8 +56,6 @@ export class LoginPagePage implements OnInit {
   }
 
   login() {
-    localStorage.setItem('user', JSON.stringify('user'));
-    console.log('my form value :- ', this.myForm.value);
     this.cmnService.showLoader();
 
     this.authService
@@ -67,11 +65,16 @@ export class LoginPagePage implements OnInit {
       })
       .subscribe(
         (res) => {
-          this.navCtrl.navigateForward('tabs');
           console.log(res, 'login');
-          this.cmnService.hideLoader();
+          setTimeout(() => {
+            this.navCtrl.navigateForward('tabs');
+            this.cmnService.hideLoader();
+          }, 2000);
         },
         (err) => {
+          this.cmnService.showError(
+            'Please enter valid username and password.'
+          );
           console.log(err, 'error');
           this.cmnService.hideLoader();
         }

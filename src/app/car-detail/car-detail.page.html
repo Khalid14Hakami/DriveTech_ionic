@@ -1,0 +1,68 @@
+<!-- eslint-disable @angular-eslint/template/eqeqeq -->
+<ion-header>
+  <ion-toolbar
+    color="primary
+  "
+  >
+    <ion-button
+      slot="start"
+      fill="clear"
+      class="text-white"
+      (click)="onBackClick()"
+    >
+      <ion-icon name="chevron-back"></ion-icon> Back
+    </ion-button>
+    <ion-title>Car Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-card style="width: 100%; padding: 10px; margin: 0px">
+        <div>VIN : <span>{{carDetail?.VIN }}</span></div>
+        <div>
+          arrival_date: {{carDetail?.arrival_date | date : 'dd/MM/yyyy' }}
+        </div>
+        <div>Battery Green : {{carDetail?.batt_green == 1 ? true :false }}</div>
+        <div>Battery Model : {{carDetail?.batt_model}}</div>
+        <div>Battery Voltage : {{carDetail?.batt_voltage}}</div>
+        <div>Color : {{carDetail?.color }}</div>
+        <div>FL : {{carDetail?.FL}}</div>
+        <div>FR : {{carDetail?.FR}}</div>
+        <div>RL : {{carDetail?.RL}}</div>
+        <div>RR : {{carDetail?.RR}}</div>
+      </ion-card>
+    </ion-row>
+
+    <ion-row style="margin-top: 15px; margin-bottom: 15px">
+      Logs History
+    </ion-row>
+
+    <ion-row>
+      <div
+        style="border: 1px solid lightgray; padding: 10px; margin-top: 10px"
+        class="w-100"
+        *ngFor="let job of carDetail?.logs"
+      >
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          "
+        >
+          <div>{{job?.name}}</div>
+          <div>{{job?.task_date | date :'dd/MM/yyyy' }}</div>
+        </div>
+        <div style="margin-top: 5px; margin-bottom: 5px">Notes :-</div>
+        <div style="background: white; border-radius: 4px; padding: 7px">
+          {{job?.notes }}
+        </div>
+        <div style="margin-top: 5px; margin-bottom: 5px">Task Value :-</div>
+        <div style="background: white; border-radius: 4px; padding: 7px">
+          {{job?.task_value }}
+        </div>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

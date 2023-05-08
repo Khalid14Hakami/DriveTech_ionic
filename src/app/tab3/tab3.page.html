@@ -1,17 +1,20 @@
 <ion-header>
   <ion-toolbar color="primary" class="text-center">
-    <div class="h3 m-0 py-3">Notifications</div>
+    <div class="h3 m-0 py-3">Cars</div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content class="ion-padding">
   <div
+    (click)="onCarClick(i)"
     class="row mx-1 my-3 p-1 shadow-custom align-items-center rounded bg-white"
-    *ngFor="let i of [1,1,1,1]"
+    *ngFor="let i of cars"
   >
-    <div class="col-9 fw-bold pt-2">Congratulations</div>
-    <div class="col-3 text-end time">09:12</div>
+    <div class="col-8 fw-bold pt-2">{{i?.VIN}}</div>
+    <div class="col-4 text-end time">
+      {{i?.arrival_date | date :'dd/MM/yyyy'}}
+    </div>
 
-    <div class="py-2">35% your daily challenge completed</div>
+    <div class="py-2">{{i?.model}},{{i?.color}}</div>
   </div>
 </ion-content>

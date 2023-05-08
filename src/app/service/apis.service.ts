@@ -32,6 +32,14 @@ export class ApisService {
     return this.http.post(environment.apiUrl + 'check-in', data);
   }
 
+  getCars() {
+    return this.http.get(environment.apiUrl + 'cars');
+  }
+
+  getCarDetailsById(id) {
+    return this.http.get(environment.apiUrl + 'cars/' + id);
+  }
+
   addJobLog(data) {
     return this.http.post(environment.apiUrl + 'job_log', data);
   }
