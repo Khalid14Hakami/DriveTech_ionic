@@ -32,6 +32,7 @@
 }
 ion-content {
   --background: #f0f4f3;
+  background: #f0f4f3;
 }
 
 ion-card {
@@ -47,4 +48,11 @@ body.scanner-active {
 .scanner-active {
   --background: transparent;
   --ion-background-color: transparent;
+  background: transparent;
+}
+
+.bg-clr {
+  background: #ffffff;
+  border: 1px solid #c6c6c6;
+  border-radius: 8px;
 }

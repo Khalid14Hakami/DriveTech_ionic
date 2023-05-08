@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule, NavController } from '@ionic/angular';
-import { ApisService } from 'src/service/apis.service';
+import { ApisService } from 'src/app/service/apis.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthServiceService } from '../service/auth-service/auth-service.service';
+import { CmnServiceService } from '../service/cmn-service/cmn-service.service';
 export interface job {
   car_id: string;
   due: string;
@@ -17,22 +20,38 @@ export interface job {
   imports: [IonicModule, CommonModule],
 })
 export class Tab1Page implements OnInit {
-  jobs: job[] = [];
+  jobs: any[] = [];
   constructor(
     private navCtrl: NavController,
-    private apiService: ApisService
+    private apiService: ApisService,
+    private cmnService: CmnServiceService
   ) {}
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  ionViewWillEnter() {
     this.getJobs();
   }
 
   getJobs() {
-    this.apiService.getJobs().subscribe((res: any) => {
-      this.jobs = res;
-    });
+    this.cmnService.showLoader();
+    this.apiService.getJobs().subscribe(
+      (res: any) => {
+        this.jobs = res;
+        this.cmnService.hideLoader();
+      },
+
+      (err) => {
+        this.cmnService.hideLoader();
+        console.log(err, 'error');
+      }
+    );
   }
 
-  onCardClick() {
-    this.navCtrl.navigateForward('scan');
+  onCardClick(job) {
+    this.navCtrl.navigateForward('scan', {
+      queryParams: {
+        vehicleData: JSON.stringify(job),
+      },
+    });
   }
 }

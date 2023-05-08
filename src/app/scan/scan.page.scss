@@ -16,18 +16,29 @@ ion-checkbox {
   --size: 17px;
 }
 
+.start-scan {
+  height: 200px;
+  width: 200px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
 ion-checkbox::part(container) {
   border-radius: 5px;
 }
-ion-input.custom {
+.custom {
   --background: #f0f4f3;
   --color: black;
   //   border: 1px solid gray;
-  border-radius: 5px;
+  --border-radius: 5px;
   --padding-bottom: 2px;
-  --padding-end: 4px;
-  --padding-start: 4px;
-  --padding-top: 2px;
+  --padding-end: 10px;
+  --padding-start: 10px;
+  --padding-top: 10px;
 }
 .row {
   background-color: white;

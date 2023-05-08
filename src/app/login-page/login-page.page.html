@@ -3,20 +3,18 @@
     <div class="text-center pt-5 pb-5">
       <img src="../../assets/icon/gm-lgo.jpg" alt="" style="width: 80px" />
     </div>
-    <div class="pdl30 welcome-txt">Hi, Wecome Back! 👋</div>
+    <div class="pdl30 welcome-txt">Hi, Welcome Back! 👋</div>
     <div class="pdl30 helloAgain-txt">Hello again, you’ve been missed!</div>
 
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="m-0 p-0">
+    <form [formGroup]="myForm" class="m-0 p-0">
       <div class="email-box pdl30 pdr25">
         <div>
-          <div class="email-txt pdt30">Email</div>
+          <div class="email-txt pdt30">Username</div>
           <ion-input
             label-placement="floating"
             formControlName="Email"
-            fill="outline"
             [(ngModel)]="email"
-            type="email"
-            placeholder="sophat.leat@nintrea.live"
+            type="text"
             class="bg-clr pdlp10"
           ></ion-input>
         </div>
@@ -43,7 +41,6 @@
             <ion-input
               label-placement="floating"
               formControlName="password"
-              fill="outline"
               [(ngModel)]="password"
               [type]="passwordVisible ? 'text' : 'password'"
               placeholder="Please Enter Your Password"
@@ -79,7 +76,7 @@
         </div> -->
       </div>
 
-      <ion-row
+      <!-- <ion-row
         class="align-items-center justify-content-between pdl30 pdt15 pdr25"
       >
         <ion-col size="6" class="d-flex align-items-center">
@@ -93,11 +90,11 @@
         >
           Forgot password
         </ion-col>
-      </ion-row>
+      </ion-row> -->
 
       <div class="pdt100">
         <ion-button
-          (click)="onSubmitClick()"
+          (click)="login()"
           class="login-btn pdr25 pdl30 text-capitalize"
           expand="full"
         >

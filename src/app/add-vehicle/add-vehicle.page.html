@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-toolbar
+    color="primary
+  "
+  >
+    <ion-button
+      slot="start"
+      fill="clear"
+      class="text-white"
+      (click)="onBackClick()"
+    >
+      <ion-icon name="chevron-back"></ion-icon> Back
+    </ion-button>
+    <ion-title>Add Vehicle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="p-2">
+    <ion-row class="w-100 mt-2">
+      <div class="w-100">
+        <div class="email-txt pdt30">Storage Location</div>
+        <ion-input
+          label-placement="floating"
+          type="text"
+          [(ngModel)]="storageLocation"
+          class="bg-clr pdlp10"
+        ></ion-input>
+      </div>
+    </ion-row>
+
+    <ion-row class="w-100 mt-2">
+      <div class="w-100">
+        <div class="email-txt pdt30">Arrival Date</div>
+        <ion-input
+          label-placement="floating"
+          [(ngModel)]="arrivalDate"
+          type="date"
+          class="bg-clr pdlp10"
+        ></ion-input>
+      </div>
+    </ion-row>
+    <ion-row class="w-100 mt-2">
+      <div class="w-100">
+        <div class="email-txt pdt30">FL</div>
+        <ion-input
+          label-placement="floating"
+          type="text"
+          [(ngModel)]="fl"
+          class="bg-clr pdlp10"
+        ></ion-input>
+      </div>
+    </ion-row>
+
+    <ion-row class="w-100 mt-2">
+      <div class="w-100">
+        <div class="email-txt pdt30">FR</div>
+        <ion-input
+          [(ngModel)]="fr"
+          label-placement="floating"
+          type="text"
+          class="bg-clr pdlp10"
+        ></ion-input>
+      </div>
+    </ion-row>
+
+    <ion-row class="w-100 mt-2">
+      <div class="w-100">
+        <div class="email-txt pdt30">RR</div>
+        <ion-input
+          [(ngModel)]="rr"
+          label-placement="floating"
+          type="text"
+          class="bg-clr pdlp10"
+        ></ion-input>
+      </div>
+    </ion-row>
+
+    <ion-row class="w-100 mt-2">
+      <div class="w-100">
+        <div class="email-txt pdt30">RL</div>
+        <ion-input
+          [(ngModel)]="rl"
+          label-placement="floating"
+          type="text"
+          class="bg-clr pdlp10"
+        ></ion-input>
+      </div>
+    </ion-row>
+
+    <ion-row class="w-100 mt-2">
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        "
+        class="w-100"
+      >
+        <ion-checkbox
+          [(ngModel)]="isBatteryGreen"
+          label-placement="floating"
+          type="text"
+          class="bg-clr pdlp10"
+        ></ion-checkbox>
+        <div class="email-txt pdt30">Battery Green ?</div>
+      </div>
+    </ion-row>
+
+    <ion-row class="w-100 mt-2">
+      <div class="w-100">
+        <div class="email-txt pdt30">Battery Voltage</div>
+        <ion-input
+          [(ngModel)]="voltage"
+          label-placement="floating"
+          type="text"
+          class="bg-clr pdlp10"
+        ></ion-input>
+      </div>
+    </ion-row>
+
+    <ion-row class="w-100 mt-2">
+      <div class="w-100">
+        <div class="email-txt pdt30">Battery Model</div>
+        <ion-input
+          [(ngModel)]="batteryModel"
+          label-placement="floating"
+          type="text"
+          class="bg-clr pdlp10"
+        ></ion-input>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar style="text-align: center; padding: 10px">
+    <ion-button
+      (click)="onAddVehicleClick()"
+      style="height: 50px; width: 80%; margin: auto"
+      >Add Vehicle</ion-button
+    >
+  </ion-toolbar>
+</ion-footer>

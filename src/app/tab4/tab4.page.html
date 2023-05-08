@@ -11,25 +11,54 @@
         />
       </div>
       <div class="col-7 p-0">
-        <div class="fw-bold profile-name">Brayden</div>
-        <div class="text-secondary profile-email">
+        <div class="fw-bold profile-name">{{user?.username}}</div>
+        <!-- <div class="text-light profile-email">
           8957489560 | email@website.com
-        </div>
+        </div> -->
       </div>
 
-      <div class="col-2 d-flex justify-content-center">
+      <!-- <div class="col-2 d-flex justify-content-center">
         <ion-button> Edit </ion-button>
-      </div>
+      </div> -->
     </div>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="ion-padding">
-  <div class="row">
-    <div class="col-10">
-      <div class="fw-bold">My Account</div>
+  <div class="box">
+    <div class="row border-bottom p-2 m-1">
+      <div class="col-10">
+        <div class="fw-bold">My Account</div>
 
-      <div>Address, Favourites & Offers</div>
+        <div class="">Address, Favourites & Offers</div>
+      </div>
+      <div class="col-2 d-flex justify-content-center">
+        <ion-button fill="clear">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </div>
     </div>
-    <div class="col-2"></div>
+    <div class="row border-bottom p-2 m-1">
+      <div class="col-10">
+        <div class="fw-bold">Help</div>
+
+        <div class="">FAQs & Links</div>
+      </div>
+      <div class="col-2 d-flex justify-content-center">
+        <ion-button fill="clear">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <div class="row border-bottom p-1 m-1" (click)="onLogoutClick()">
+      <div class="col-10 p-0">
+        <ion-button class="text-danger" fill="clear">Logout</ion-button>
+      </div>
+      <div class="col-2 d-flex justify-content-center">
+        <ion-button fill="clear">
+          <ion-icon name="log-out-outline" class="text-danger"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
   </div>
 </ion-content>

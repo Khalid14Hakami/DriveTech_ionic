@@ -17,7 +17,7 @@ export class TabsPage implements OnInit {
   ngOnInit(): void {}
 
   async scanQR() {
-    this.navCtrl.navigateForward('scan/' + 'scandata');
+    this.navCtrl.navigateForward('check-in-vehicle');
     // document.querySelector('body').classList.add('scanner-active');
     // this.showScanner = true;
     // await BarcodeScanner.checkPermission({ force: true });

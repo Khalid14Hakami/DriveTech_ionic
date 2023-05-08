@@ -9,93 +9,107 @@
   [ngClass]="{'scanner-active' : showScanner}"
   class="ion-padding h-100 w-100"
 >
+  <ion-card class="text-center py-3 m-0" mode="ios">
+    <div class="w-25 m-auto">
+      <img
+        src="https://cdn.worldvectorlogo.com/logos/gmc-1.svg"
+        class="h-100 w-100"
+      />
+    </div>
+    <div class="h5 fw-bold py-2">{{vehicleData?.model}}</div>
+    <div class="w-75 m-auto fw-bold">
+      <!-- <div>Storage location : {{detail.storage_location}}</div> -->
+      <div>
+        Arrival date : {{vehicleData?.arrival_date | date :'dd, MMM yyyy'}}
+      </div>
+      <div>VSN : {{vehicleData?.VIN}}</div>
+    </div>
+  </ion-card>
+
+  <div
+    style="
+      height: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    "
+    *ngIf="!showData"
+  >
+    <div (click)="startScanning()" class="start-scan">Scan QR</div>
+  </div>
   <div *ngIf="showData" class="h-100">
-    <ion-card
-      *ngFor="let detail of modaldetails"
-      class="text-center py-3 m-0"
-      mode="ios"
-    >
-      <div class="w-25 m-auto">
-        <img
-          src="https://cdn.worldvectorlogo.com/logos/gmc-1.svg"
-          class="h-100 w-100"
-        />
-      </div>
-      <div class="h5 fw-bold py-2">{{detail.make}}</div>
-      <div class="w-75 m-auto fw-bold">
-        <div>Storage location : {{detail.storage_location}}</div>
-        <div>Arrival date : {{detail.arrival_date}}</div>
-        <div>VSN : {{detail.VIN}}</div>
-      </div>
-    </ion-card>
-
     <div class="py-2" *ngIf="true">
-      <div class="row align-items-center py-3">
-        <div class="col-7 h5 m-0 fw-bold">Battery Green Eye</div>
+      <div
+        *ngFor="let task of vehicleData?.tasks"
+        class="row align-items-center py-3"
+      >
+        <div class="col-7 h5 m-0 fw-bold">{{task?.name }}</div>
         <div class="col-5 d-flex align-items-center justify-content-end">
           <div class="mx-2 d-flex align-items-center">
-            <ion-checkbox></ion-checkbox>
-          </div>
-          checked
-        </div>
-      </div>
-
-      <div class="row align-items-center py-3">
-        <div class="col-7 h5 m-0 fw-bold py-2">Tire Pressure</div>
-        <div class="col-5 d-flex align-items-center justify-content-end">
-          <div class="mx-2 d-flex align-items-center">
-            <ion-checkbox></ion-checkbox>
+            <ion-checkbox
+              (ionChange)="onTaskChecked($event , task)"
+            ></ion-checkbox>
           </div>
           checked
         </div>
 
-        <div class="col-12 text-muted">
-          <div class="row align-items-center p-1 m-1">
-            <div class="col-9 p-0 fw-bold">Front-Right</div>
-            <div class="col-3 p-0">
-              <ion-input class="custom" value="118" type="number"> </ion-input>
-            </div>
-          </div>
-
-          <div class="row align-items-center p-1 m-1">
-            <div class="col-9 p-0 fw-bold">Front-Left</div>
-            <div class="col-3 p-0">
-              <ion-input class="custom" value="55" type="number"> </ion-input>
-            </div>
-          </div>
-
-          <div class="row align-items-center p-1 m-1">
-            <div class="col-9 p-0 fw-bold">Rear-Right</div>
-            <div class="col-3 p-0">
-              <ion-input class="custom" value="345" type="number"> </ion-input>
-            </div>
-          </div>
-
-          <div class="row align-items-center p-1 m-1">
-            <div class="col-9 p-0 fw-bold">Rear-Left</div>
-            <div class="col-3 p-0">
-              <ion-input class="custom" value="666" type="number"> </ion-input>
+        <div *ngIf="task?.measureTasks?.length" class="col-12 text-muted">
+          <div
+            *ngFor="let mTask of  task?.measureTasks"
+            class="row align-items-center p-1 m-1"
+          >
+            <div class="col-6 p-0 fw-bold">{{mTask?.nameOfAttribute}}</div>
+            <div class="col-6 p-0">
+              <ion-input
+                #input
+                (input)="onInputChange($event,mTask , input.value )"
+                class="custom"
+              >
+              </ion-input>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="row align-items-center py-3">
-        <div class="col-7 h5 m-0 fw-bold">Gas Tank</div>
-        <div class="col-5 d-flex align-items-center justify-content-end">
-          <div class="mx-2 d-flex align-items-center">
-            <ion-checkbox></ion-checkbox>
-          </div>
-          checked
+        <div class="col-12 p-2">
+          <ion-textarea
+            #notes
+            (input)="onNotesAdded(task, notes.value)"
+            class="custom p-2"
+            placeholder="notes"
+          >
+          </ion-textarea>
         </div>
-      </div>
-      <div class="row align-items-center py-3">
-        <div class="col-7 h5 m-0 fw-bold">Engine Run</div>
-        <div class="col-5 d-flex align-items-center justify-content-end">
-          <div class="mx-2 d-flex align-items-center">
-            <ion-checkbox></ion-checkbox>
+
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 30px;
+          "
+          *ngIf="task?.req_image == 1"
+        >
+          <span> Picture Required* </span>
+
+          <ion-button
+            [disabled]="task?.pictures?.length == 2"
+            (click)="onAddPictureClick(task)"
+            style="text-transform: none"
+            >Click to add Picture</ion-button
+          >
+        </div>
+
+        <div
+          *ngIf="task?.pictures?.length"
+          style="margin-top: 20px"
+          class="row"
+        >
+          <div *ngFor="let picture of task?.pictures;let i=index" class="col-6">
+            <img style="width: 100%; height: 100px" [src]="picture" />
+
+            <ion-button (click)="onRemoveImageClick(task?.pictures , i)"
+              >Remove</ion-button
+            >
           </div>
-          checked
         </div>
       </div>
     </div>
@@ -104,7 +118,13 @@
 <ion-footer *ngIf="showData">
   <ion-toolbar>
     <div class="px-4 py-2">
-      <ion-button expand="block"> Complete </ion-button>
+      <ion-button
+        (click)="onCompleteClick()"
+        style="height: 50px"
+        expand="block"
+      >
+        Complete
+      </ion-button>
     </div>
   </ion-toolbar>
 </ion-footer>

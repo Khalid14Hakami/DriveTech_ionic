@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { AuthServiceService } from '../service/auth-service/auth-service.service';
 
 export const routes: Routes = [
   {
     path: 'tabs',
     component: TabsPage,
+
     children: [
       {
         path: 'tab1',
